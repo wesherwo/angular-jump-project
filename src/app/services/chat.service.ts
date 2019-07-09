@@ -13,9 +13,21 @@ export class ChatService {
         this.socket.emit('new-message', message);
     }
 
+    public sendVideo(message) {
+        this.socket.emit('new-video', message);
+    }
+
     public getMessages = () => {
         return Observable.create((observer) => {
             this.socket.on('new-message', (message) => {
+                observer.next(message);
+            });
+        });
+    }
+
+    public getVideos = () => {
+        return Observable.create((observer) => {
+            this.socket.on('new-video', (message) => {
                 observer.next(message);
             });
         });

@@ -19,7 +19,6 @@ export class YtlobbyComponent  implements OnInit {
   title = 'music';
   player: YT.Player;
   id:string = '';
-  vidTitle:string = '';
   chat=[];
   vidQueue=[];
   chatText:string;
@@ -31,14 +30,18 @@ export class YtlobbyComponent  implements OnInit {
       .subscribe((message: string) => {
         this.chat.push(message);
       });
+      this.chatService
+      .getVideos()
+      .subscribe((message: string) => {
+        this.id = message;
+        this.player.loadVideoById(this.id);
+      });
   }
 
   playSong(){
       this.youtube.search(this.searchText).subscribe(
         _results => {
-          this.id = _results[0].id;
-          this.vidTitle = _results[0].title;
-          this.player.loadVideoById(this.id);
+          this.chatService.sendVideo(_results[0].id);
         },
         err => {
           console.log(err);
