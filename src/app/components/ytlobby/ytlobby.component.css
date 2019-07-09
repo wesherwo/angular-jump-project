@@ -1,0 +1,114 @@
+.searchbutton {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: limegreen;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    width: 10%;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    box-sizing: border-box;
+  }
+  .searchbutton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  .searchbutton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    transition: 0.5s;
+  }
+  .searchbutton:hover span {
+    padding-right: 20px;
+  }
+  .searchbutton:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  .searchbar, select {
+    width: 88%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .chatContainer{
+    float: right;
+    height: 250px;
+    width:45%;
+  }
+  .chat{
+    float: right;
+    min-height: 225px;
+    height: 225px;
+    width: 100%;
+    overflow: scroll;
+  }
+  .message{
+    border-bottom: 1px solid lightgray;
+  }
+
+  .videoqueue{
+    height: 200px;
+    width:50%;
+    overflow: scroll;
+  }
+
+  .chatSend {
+    display: inline-block;
+    border-radius: 8px;
+    background-color: limegreen;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 12px;
+    padding: 4px;
+    width: 10%;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 8px;
+    box-sizing: border-box;
+  }
+  .chatSend span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  .chatSend span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -5px;
+    transition: 0.5s;
+  }
+  .chatSend:hover span {
+    padding-right: 10px;
+  }
+  .chatSend:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+  .chatText, select {
+    width: 85%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }

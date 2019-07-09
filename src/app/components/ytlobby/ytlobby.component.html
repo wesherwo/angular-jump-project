@@ -1,0 +1,20 @@
+<input class="searchbar" [(ngModel)]="searchText" type="text" (keyup)="$event.keyCode == 13 && playSong()">
+<button class="searchbutton" type="submit" (click)="playSong()"
+    style="vertical-align:middle"><span>Search</span></button>
+<youtube-player [videoId]="id" (ready)="savePlayer($event)" (change)="onStateChange($event)" width="54%">
+</youtube-player>
+<div class="chatContainer">
+    <div class="chat">
+        <div class="message" *ngFor="let msg of chat">
+            {{msg}}
+        </div>
+    </div>
+    <input class="chatText"  [(ngModel)]="chatText" type="text" (keyup)="$event.keyCode == 13 && sendMessage()">
+        <button class="chatSend" (click)="sendMessage()"
+            style="vertical-align:middle"><span>Send</span></button>
+</div>
+<div class="videoqueue">
+    <div *ngFor="let vid of vidQueue">
+        {{vid}}
+    </div>
+</div>
