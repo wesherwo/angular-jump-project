@@ -25,6 +25,10 @@ export class ChatService {
         this.socket.emit('pause-video', message);
     }
 
+    public createChannel() {
+        this.socket.emit('create-lobby');
+    }
+
     public joinChannel(message) {
         this.socket.emit('join-lobby', message);
     }

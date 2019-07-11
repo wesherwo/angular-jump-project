@@ -10,6 +10,7 @@ import { ChatService } from './services/chat.service';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { JoinlobbyComponent } from './components/joinlobby/joinlobby.component';
+import { YtlobbyComponent } from './components/ytlobby/ytlobby.component';
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 

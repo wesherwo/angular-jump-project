@@ -29,7 +29,7 @@ io.on('connection', (socket) => {
     io.to(num).emit('pause-video', message);
   });
 
-  socket.on('create-lobby', (message) => {
+  socket.on('create-lobby', () => {
     num = Math.floor(Math.random() * 89999 + 10000);
     while (allLobbys.indexOf(num) != -1) {
       num = Math.floor(Math.random() * 89999 + 10000);
