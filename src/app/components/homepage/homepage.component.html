@@ -1,0 +1,27 @@
+<h1 align = "center" style ="color:white;">Youtube With Friends</h1>
+
+<app-navbar></app-navbar>
+
+<section>
+  <img class="mySlides" src="https://townsquare.media/site/812/files/2019/03/Drake-Rocking-In-Paris.jpg?w=980&q=75" style="width:100%">
+  <img class="mySlides" src="https://www.grammy.com/sites/com/files/styles/image_landscape_hero/public/beatles-hero-514890404.jpg?itok=0lUBO7km" style="width:100%">
+  <img class="mySlides" src="https://pmcvariety.files.wordpress.com/2017/04/ken.jpg?w=1000" style="width:100%">
+</section>
+
+<script>
+
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 3000);
+}
+</script>
