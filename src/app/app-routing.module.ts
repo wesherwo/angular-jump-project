@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HomepageComponent } from 'src/app/components/homepage/homepage.component'
-import {YtlobbyComponent} from 'src/app/components/ytlobby/ytlobby.component'
-import {AboutusComponent} from 'src/app/components/aboutus/aboutus.component'
+import { HomepageComponent } from 'src/app/components/homepage/homepage.component'
+import { YtlobbyComponent } from 'src/app/components/ytlobby/ytlobby.component'
+import { AboutusComponent } from 'src/app/components/aboutus/aboutus.component'
+import { JoinlobbyComponent } from 'src/app/components/joinlobby/joinlobby.component';
 const routes: Routes = [
   { path: '', redirectTo: '/homepage' , pathMatch: 'full' },
   { path: 'homepage', component: HomepageComponent},
+  { path: 'joinlobby', component: JoinlobbyComponent },
   { path: 'ytlobby', component: YtlobbyComponent },
   { path: 'aboutus', component: AboutusComponent},
 ];
-
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
