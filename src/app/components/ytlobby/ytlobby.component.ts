@@ -37,6 +37,7 @@ export class YtlobbyComponent implements OnInit {
       .subscribe((message: string) => {
         this.id = message;
         this.player.loadVideoById(this.id);
+        this.pauseVideo();
       });
     this.chatService.playVideos()
       .subscribe((message: string) => {
