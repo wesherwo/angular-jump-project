@@ -1,0 +1,46 @@
+.joinbutton {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: limegreen;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    width: 10%;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    box-sizing: border-box;
+  }
+  .joinbutton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  .joinbutton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    transition: 0.5s;
+  }
+  .joinbutton:hover span {
+    padding-right: 20px;
+  }
+  .joinbutton:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  .searchbar, select {
+    width: 88%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
