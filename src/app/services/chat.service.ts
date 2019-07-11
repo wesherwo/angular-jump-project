@@ -17,6 +17,14 @@ export class ChatService {
         this.socket.emit('new-video', message);
     }
 
+    public playVideo(message) {
+        this.socket.emit('play-video', message);
+    }
+
+    public pauseVideo(message) {
+        this.socket.emit('pause-video', message);
+    }
+
     public getMessages = () => {
         return Observable.create((observer) => {
             this.socket.on('new-message', (message) => {
@@ -28,6 +36,22 @@ export class ChatService {
     public getVideos = () => {
         return Observable.create((observer) => {
             this.socket.on('new-video', (message) => {
+                observer.next(message);
+            });
+        });
+    }
+
+    public playVideos = () => {
+        return Observable.create((observer) => {
+            this.socket.on('play-video', (message) => {
+                observer.next(message);
+            });
+        });
+    }
+
+    public pauseVideos = () => {
+        return Observable.create((observer) => {
+            this.socket.on('pause-video', (message) => {
                 observer.next(message);
             });
         });

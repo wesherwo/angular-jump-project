@@ -13,41 +13,43 @@ import { ChatService } from 'src/app/services/chat.service';
   templateUrl: './ytlobby.component.html',
   styleUrls: ['./ytlobby.component.css']
 })
-export class YtlobbyComponent  implements OnInit {
+export class YtlobbyComponent implements OnInit {
 
   constructor(private youtube: YoutubeSearchService, private el: ElementRef, private chatService: ChatService) { }
   title = 'music';
   player: YT.Player;
-  id:string = '';
-  chat=[];
-  vidQueue=[];
-  chatText:string;
-  searchText:string;
+  id: string = '';
+  chat = [];
+  vidQueue = [];
+  chatText: string;
+  searchText: string;
 
   ngOnInit() {
-    this.chatService
-      .getMessages()
+    this.chatService.getMessages()
       .subscribe((message: string) => {
         this.chat.push(message);
       });
-      this.chatService
-      .getVideos()
+    this.chatService.getVideos()
       .subscribe((message: string) => {
         this.id = message;
         this.player.loadVideoById(this.id);
       });
+    this.chatService.playVideos()
+      .subscribe((message: string) => {
+        this.playVideo();
+      });
+    this.chatService.pauseVideos()
+      .subscribe((message: string) => {
+        this.pauseVideo();
+      });
   }
 
-  playSong(){
-      this.youtube.search(this.searchText).subscribe(
-        _results => {
-          this.chatService.sendVideo(_results[0].id);
-        },
-        err => {
-          console.log(err);
-        }
-      );
-      this.searchText = '';
+  playSong() {
+    this.youtube.search(this.searchText).subscribe(
+      _results => {
+        this.chatService.sendVideo(_results[0].id);
+      },err => {console.log(err);});
+    this.searchText = '';
   }
 
   savePlayer(player) {
@@ -56,7 +58,13 @@ export class YtlobbyComponent  implements OnInit {
   }
 
   onStateChange(event) {
-    console.log('player state', event.data);
+    console.log(event.data);
+    if(event.data == 1){
+      this.chatService.playVideo("play");
+    }
+    if(event.data == 2){
+      this.chatService.pauseVideo("pause");
+    }
   }
 
   playVideo() {

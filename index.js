@@ -16,6 +16,12 @@ io.on('connection', (socket) => {
     socket.on('new-video', (message) => {
       io.emit('new-video', message);
     });
+    socket.on('play-video', (message) => {
+      io.emit('play-video', message);
+    });
+    socket.on('pause-video', (message) => {
+      io.emit('pause-video', message);
+    });
 });
 
 server.listen(port, () => {
