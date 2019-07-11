@@ -25,6 +25,19 @@ export class ChatService {
         this.socket.emit('pause-video', message);
     }
 
+    public joinChannel(message) {
+        this.socket.emit('join-lobby', message);
+    }
+
+    public getLobby = () => {
+        this.socket.emit('get-lobby', "");
+        return Observable.create((observer) => {
+            this.socket.on('get-lobby', (message) => {
+                observer.next(message);
+            });
+        });
+    }
+
     public getMessages = () => {
         return Observable.create((observer) => {
             this.socket.on('new-message', (message) => {

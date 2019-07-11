@@ -16,15 +16,19 @@ import { ChatService } from 'src/app/services/chat.service';
 export class YtlobbyComponent implements OnInit {
 
   constructor(private youtube: YoutubeSearchService, private el: ElementRef, private chatService: ChatService) { }
-  title = 'music';
   player: YT.Player;
   id: string = '';
   chat = [];
   vidQueue = [];
   chatText: string;
   searchText: string;
+  lobby: Number = 0;
 
   ngOnInit() {
+    this.chatService.getLobby()
+      .subscribe((message) => {
+        this.lobby = message
+      });
     this.chatService.getMessages()
       .subscribe((message: string) => {
         this.chat.push(message);
@@ -48,7 +52,7 @@ export class YtlobbyComponent implements OnInit {
     this.youtube.search(this.searchText).subscribe(
       _results => {
         this.chatService.sendVideo(_results[0].id);
-      },err => {console.log(err);});
+      }, err => { console.log(err); });
     this.searchText = '';
   }
 
@@ -59,10 +63,10 @@ export class YtlobbyComponent implements OnInit {
 
   onStateChange(event) {
     console.log(event.data);
-    if(event.data == 1){
+    if (event.data == 1) {
       this.chatService.playVideo("play");
     }
-    if(event.data == 2){
+    if (event.data == 2) {
       this.chatService.pauseVideo("pause");
     }
   }
