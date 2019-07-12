@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <input class="searchbar" [(ngModel)]="joinText" type="text" (keyup)="$event.keyCode == 13 && joinLobby()">
 <button class="joinbutton" type="submit" (click)="joinLobby()"
     style="vertical-align:middle"><span>Join</span></button>
